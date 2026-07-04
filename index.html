@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi There!</title>
+    
+    <!-- CSS Internal/Eksternal -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+<!-- THEME TOGGLE -->
+    <button id="theme-toggle" class="theme-btn" aria-label="Ganti Tema">
+        <i class="fas fa-moon"></i>
+    </button>
+
+<!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content reveal">
+            <p class="greeting-text" id="greeting">Hi There,</p>
+            <h1>I'm <span class="highlight">Abimm</span></h1>
+            <p class="bio">Just an ordinary person with extraordinary dreams.</p>
+            
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="hero-image reveal">
+            <div class="blob-profile"></div>
+        </div>
+    </section>
+
+    <!-- PHOTO DUMP -->
+    <section class="photodump reveal">
+        <h2>Kepingan Visual</h2>
+        <p class="section-desc">Jepretan acak yang menangkap mood keseharianku.</p>
+        
+        <div class="gallery-wrapper">
+            
+            <!-- REL 1: Bergerak ke Kanan (Pola Grid A) -->
+            <div class="marquee-track">
+                <div class="marquee-content scroll-right">
+                    <!-- Susunan Block 1 (Besar di Kiri) -->
+                    <div class="bento-block">
+                        <img src="img/BarcaT.webp" class="tb-large" alt="Barcat">
+                        <img src="https://images.unsplash.com/photo-1518288774671-b94a8035cb25?w=400&q=80" class="tb-tall" alt="Langit">
+                        <img src="https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?w=800&q=80" class="tb-wide" alt="Jalanan">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&q=80" class="tb-small" alt="Kucing">
+                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&q=80" class="tb-small" alt="Neon">
+                    </div>
+                    <!-- Susunan Block 1 (Duplikat agar tidak putus) -->
+                    <div class="bento-block">
+                        <img src="img/BarcaT.webp" class="tb-large" alt="Barcat">
+                        <img src="https://images.unsplash.com/photo-1518288774671-b94a8035cb25?w=400&q=80" class="tb-tall" alt="Langit">
+                        <img src="https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?w=800&q=80" class="tb-wide" alt="Jalanan">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&q=80" class="tb-small" alt="Kucing">
+                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&q=80" class="tb-small" alt="Neon">
+                    </div>
+                </div>
+            </div>
+
+            <!-- REL 2: Bergerak ke Kiri (Pola Grid B) -->
+            <div class="marquee-track">
+                <div class="marquee-content scroll-left">
+                    <!-- Susunan Block 2 (Besar di Tengah, Pecahan di Kiri) -->
+                    <div class="bento-block">
+                        <img src="img/BarcaT.webp" class="tb-small" alt="Barcat">
+                        <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?w=400&q=80" class="tb-small" alt="Meja">
+                        <img src="img/Rebahan.avif" class="tb-large" alt="Rebahan">
+                        <img src="img/Messi.jpg" class="tb-tall" alt="Messi">
+                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&q=80" class="tb-wide" alt="Buku">
+                    </div>
+                    <!-- Susunan Block 2 (Duplikat agar tidak putus) -->
+                    <div class="bento-block">
+                        <img src="img/BarcaT.webp" class="tb-small" alt="Barcat">
+                        <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?w=400&q=80" class="tb-small" alt="Meja">
+                        <img src="https://images.unsplash.com/photo-1600861195091-690c90f3c648?w=800&q=80" class="tb-large" alt="Lampu">
+                        <img src="img/Messi.jpg" class="tb-tall" alt="Messi">
+                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&q=80" class="tb-wide" alt="Buku">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+<!-- MUSIC Spotify -->
+    <section class="music reveal">
+        <h2>Rotasi Audio Saat Ini</h2>
+        <p class="section-desc">Pilih vibe kamu hari ini.</p>
+        
+        <!-- Tombol Vibe Check -->
+        <div class="vibe-switcher">
+            <button class="vibe-btn active" data-playlist="37i9dQZF1DXcBWIGoYBM5M">
+                <i class="fas fa-mug-hot"></i> Mode Fokus
+            </button>
+            <button class="vibe-btn" data-playlist="37i9dQZF1DX8Uebhn9wfbj">
+                <i class="fas fa-cloud-rain"></i> Vibe Hujan
+            </button>
+            <button class="vibe-btn" data-playlist="37i9dQZF1DWYV7OOaGhoH0">
+                <i class="fas fa-moon"></i> Tengah Malam
+            </button>
+        </div>
+
+        <!-- Wadah Spotify -->
+        <div class="spotify-wrapper">
+            <iframe id="spotify-player" style="border-radius:16px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- mailbox  -->
+    <section class="secret-message reveal">
+        <div class="message-card">
+            <i class="fas fa-envelope-open-text message-icon"></i>
+            <h2>Kotak Surat Rahasia</h2>
+            <p>Punya cerita lucu, pesan rahasia, atau sekadar mau bilang hai tanpa ketahuan? Drop pesanmu di sini!</p>
+            <!-- Ganti href dengan link NGL, Secreto, atau platform anonim milikmu -->
+            <a href="https://ngl.link/username_kamu" target="_blank" class="btn-gold">Kirim Pesan Anonim</a>
+        </div>
+    </section>
+
+<!-- FOOTER -->
+    <footer>
+        <!-- Ganti [Nama Kamu] di bawah ini dengan nama aslimu -->
+        <p>&copy; 2026 Abimm. Dirancang dengan <i class="fas fa-heart" style="color:#c5a059"></i> dan estetika.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
