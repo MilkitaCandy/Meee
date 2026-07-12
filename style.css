@@ -320,48 +320,6 @@ body.dark-mode .pill-btn:hover {
     font-size: 2.5rem;
     margin-bottom: 30px;
 }
-
-.vibe-switcher {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-}
-
-.vibe-btn {
-    background: transparent;
-    border: 2px solid rgba(15, 46, 46, 0.2);
-    color: var(--text-muted);
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-}
-
-.vibe-btn i {
-    margin-right: 8px;
-}
-
-.vibe-btn:hover, .vibe-btn.active {
-    background: var(--text-main);
-    color: var(--bg-color);
-    border-color: var(--text-main);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-body.dark-mode .vibe-btn:hover,
-body.dark-mode .vibe-btn.active {
-    background: var(--accent-gold);
-    color: #0b1616;
-    border-color: var(--accent-gold);
-}
-
 .spotify-wrapper {
     max-width: 1000px;
     margin: 0 auto;
@@ -372,9 +330,6 @@ body.dark-mode .vibe-btn.active {
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-#spotify-player {
-    transition: opacity 0.5s ease;
-}
 
 /* ==========================================================================
    7. SECRET MESSAGE (KOTAK SURAT)
@@ -484,9 +439,8 @@ body.dark-mode .btn-outline-gold:hover {
     transition: transform 0.3s ease;
 }
 
-/* Membuat isi profil melayang (badge dan foto) */
-.hero-image .blob-profile,
-.hero-image .floating-badge {
+/* Membuat isi profil melayang (foto) */
+.hero-image .blob-profile {
     transform: translateZ(40px);
 }
 
