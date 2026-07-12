@@ -134,17 +134,71 @@ section {
     max-width: 85%;
 }
 
-.social-icons a {
-    color: var(--text-main);
-    font-size: 1.5rem;
-    margin-right: 15px;
-    transition: color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
+/* --- Expandable Social Pills --- */
+.social-pills {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Agar aman kalau layarnya kecil */
 }
 
-.social-icons a:hover {
-    color: var(--accent-gold);
-    transform: translateY(-5px);
+.pill-btn {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid rgba(197, 160, 89, 0.4); /* Garis tipis warna emas */
+    color: var(--text-main);
+    text-decoration: none;
+    height: 45px;
+    width: 45px; /* Ukuran awal (hanya lingkaran) */
+    border-radius: 50px;
+    overflow: hidden; /* Sembunyikan teks yang kelebihan */
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Efek melar yang sangat smooth */
+    backdrop-filter: blur(5px);
+}
+
+.pill-btn i {
+    font-size: 1.3rem;
+    min-width: 45px; /* Memastikan ikon tetap di tengah lingkaran awal */
+    text-align: center;
+}
+
+.pill-btn .pill-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-15px); /* Teks sedikit geser ke kiri pas sembunyi */
+    transition: all 0.3s ease;
+}
+
+/* --- Efek Saat Diarahkan (Hover) --- */
+.pill-btn:hover {
+    background: var(--accent-gold);
+    color: #0b1616; /* Teks jadi gelap agar kontras */
+    border-color: var(--accent-gold);
+    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3); /* Cahaya emas di bawahnya */
+}
+
+.pill-btn:hover .pill-text {
+    opacity: 1;
+    transform: translateX(0); /* Teks maju ke posisi asli */
+    padding-right: 20px; /* Jarak agar teks tidak mepet kanan */
+}
+
+/* Mengatur lebar spesifik saat melar sesuai panjang teks */
+.pill-btn.instagram:hover { width: 145px; }
+.pill-btn.tiktok:hover { width: 125px; }
+.pill-btn.github:hover { width: 125px; }
+.pill-btn.letterboxd:hover { width: 135px; }
+
+/* Menyesuaikan warna ikon dan teks saat Dark Mode */
+body.dark-mode .pill-btn {
+    color: var(--text-main); /* Mengikuti teks terang di dark mode */
+}
+body.dark-mode .pill-btn:hover {
+    color: #0b1616;
 }
 
 .hero-image {
@@ -156,7 +210,7 @@ section {
 .blob-profile {
     width: 350px;
     height: 350px;
-    background-image: url('img/rorr.jpeg'); 
+    background-image: url('img/plenger.avif'); /* Ganti dengan path gambar profilmu */
     background-size: cover;
     background-position: center;
     box-shadow: 0 20px 40px rgba(15, 46, 46, 0.15);
@@ -325,55 +379,95 @@ body.dark-mode .vibe-btn.active {
 /* ==========================================================================
    7. SECRET MESSAGE (KOTAK SURAT)
    ========================================================================== */
-.secret-message {
-    text-align: center;
+.secret-drop {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
 }
 
-.message-card {
-    background: var(--card-bg);
+.drop-card {
+    background: rgba(15, 46, 46, 0.03); /* Background sangat tipis */
+    border: 1px solid rgba(15, 46, 46, 0.1);
     border-radius: 20px;
-    padding: 50px 30px;
-    border: 2px dashed var(--accent-gold);
+    padding: 40px;
     max-width: 600px;
-    margin: 0 auto;
+    width: 100%;
     backdrop-filter: blur(10px);
-    transition: transform 0.4s ease;
+    transition: all 0.4s ease;
+    text-align: left; /* Rata kiri biar terkesan kayak aplikasi beneran */
 }
 
-.message-card:hover {
-    transform: translateY(-8px);
+/* Transisi Halus Saat Disentuh */
+.drop-card:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    transform: translateY(-5px);
 }
 
-.message-icon {
-    font-size: 3rem;
+.drop-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.drop-header i {
+    font-size: 1.8rem;
     color: var(--accent-gold);
-    margin-bottom: 20px;
-    animation: floatIcon 3s ease-in-out infinite;
 }
 
-@keyframes floatIcon {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+.drop-header h2 {
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1;
 }
 
-.btn-gold {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 12px 35px;
-    background: var(--accent-gold);
-    color: #0b1616;
-    text-decoration: none;
+.drop-card p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+}
+
+/* Tombol Gaya Outline Minimalis */
+.btn-outline-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--text-main);
     border-radius: 30px;
+    text-decoration: none;
     font-family: 'Outfit', sans-serif;
     font-weight: 600;
-    letter-spacing: 1px;
+    font-size: 0.95rem;
     transition: all 0.3s ease;
 }
 
-.btn-gold:hover {
-    background: #d4af37;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+.btn-outline-gold:hover {
+    background: var(--text-main);
+    color: var(--bg-color);
+}
+
+/* --- Penyesuaian untuk Dark Mode --- */
+body.dark-mode .drop-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(197, 160, 89, 0.2);
+}
+
+body.dark-mode .drop-card:hover {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .btn-outline-gold {
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+body.dark-mode .btn-outline-gold:hover {
+    background: var(--accent-gold);
+    color: #0b1616;
 }
 
 /* ==========================================================================
@@ -411,4 +505,120 @@ footer {
     z-index: -1; /* Supaya selalu di belakang konten */
     top: 0;
     left: 0;
+}
+
+.virtual-cat {
+    position: fixed;
+    bottom: -10px; /* Ngintip dari bawah layar */
+    right: 40px;
+    z-index: 9999;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Balon Teks (Meow & Zzz) */
+.cat-meow, .cat-zzz {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card-bg);
+    color: var(--text-main);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    border: 1px solid var(--accent-gold);
+    backdrop-filter: blur(5px);
+    white-space: nowrap;
+}
+
+/* Bentuk Kepala Kucing */
+.cat-head {
+    width: 70px;
+    height: 60px;
+    background: #0f2e2e; /* Warna gelap khas tema web */
+    border-radius: 35px 35px 15px 15px;
+    position: relative;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+}
+
+/* Telinga */
+.cat-ear {
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid #0f2e2e;
+    position: absolute;
+    top: -15px;
+}
+.ear-left { left: 0; transform: rotate(-15deg); }
+.ear-right { right: 0; transform: rotate(15deg); }
+
+/* Wajah dan Mata */
+.cat-face {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.cat-eye {
+    width: 14px;
+    height: 14px;
+    background: var(--accent-gold); /* Mata warna emas */
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    transition: height 0.3s ease; /* Transisi buat merem */
+}
+
+/* Pupil Mata Hitam */
+.pupil {
+    width: 6px;
+    height: 12px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    transition: transform 0.1s ease-out; /* Bergerak ngikutin mouse */
+}
+
+.cat-nose {
+    width: 8px;
+    height: 5px;
+    background: #ff9eb5; /* Hidung pink aesthetic */
+    border-radius: 50%;
+    position: absolute;
+    top: 12px;
+}
+
+/* --- Animasi Saat Kucing Tidur --- */
+.virtual-cat.sleeping .cat-eye {
+    height: 3px; /* Matanya menyipit/merem */
+    margin-top: 5px;
+}
+.virtual-cat.sleeping .cat-zzz {
+    opacity: 1;
+    animation: floatZzz 2s infinite ease-in-out;
+}
+
+@keyframes floatZzz {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -8px); }
+}
+
+/* --- Animasi Saat Kucing Diklik --- */
+.virtual-cat.meowing {
+    transform: translateY(-20px); /* Kucing melompat */
+}
+.virtual-cat.meowing .cat-meow {
+    opacity: 1;
 }

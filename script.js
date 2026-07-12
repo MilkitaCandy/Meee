@@ -134,3 +134,61 @@ particlesJS("particles-js", {
     },
     "retina_detect": true
 });
+
+const cat = document.getElementById('virtual-cat');
+const pupils = document.querySelectorAll('.pupil');
+let sleepTimer;
+
+if (cat && pupils.length > 0) {
+    // Fungsi untuk membangunkan kucing
+    const wakeUpCat = () => {
+        cat.classList.remove('sleeping');
+        clearTimeout(sleepTimer);
+        
+        // Kucing akan tidur lagi setelah didiamkan 4 detik
+        sleepTimer = setTimeout(() => {
+            cat.classList.add('sleeping');
+        }, 4000); 
+    };
+
+    // Event: Mata ngikutin kursor
+    document.addEventListener('mousemove', (e) => {
+        wakeUpCat();
+        
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        pupils.forEach(pupil => {
+            // Mendapatkan posisi tengah mata kucing
+            const rect = pupil.parentElement.getBoundingClientRect();
+            const eyeX = rect.left + rect.width / 2;
+            const eyeY = rect.top + rect.height / 2;
+
+            // Menghitung sudut arah kursor
+            const angle = Math.atan2(mouseY - eyeY, mouseX - eyeX);
+            
+            // Menentukan seberapa jauh pupil boleh bergerak (maksimal 4px)
+            const distance = Math.min(4, Math.hypot(mouseX - eyeX, mouseY - eyeY) / 15);
+
+            const x = Math.cos(angle) * distance;
+            const y = Math.sin(angle) * distance;
+
+            // Menggerakkan pupil
+            pupil.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    });
+
+    // Event: Kalau kucingnya diklik
+    cat.addEventListener('click', () => {
+        wakeUpCat();
+        cat.classList.add('meowing');
+        
+        // Menghapus efek lompat dan meow setelah 1 detik
+        setTimeout(() => {
+            cat.classList.remove('meowing');
+        }, 1000);
+    });
+
+    // Jalankan timer tidur pertama kali web dibuka
+    wakeUpCat();
+}
