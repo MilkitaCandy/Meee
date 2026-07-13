@@ -424,31 +424,6 @@ body.dark-mode .btn-outline-gold:hover {
     background: var(--accent-gold);
     color: #0b1616;
 }
-
-/* Memberikan ruang dimensi 3D pada kartu */
-.drop-card, .hero-image {
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-}
-
-/* Membuat isi kartu melayang (maju ke depan sejauh 30px) */
-.drop-card .drop-header,
-.drop-card p,
-.drop-card .drop-action {
-    transform: translateZ(30px);
-    transition: transform 0.3s ease;
-}
-
-/* Membuat isi profil melayang (foto) */
-.hero-image .blob-profile {
-    transform: translateZ(40px);
-}
-
-/* Memperbaiki z-index efek pantulan cahaya bawaan Tilt.js */
-.js-tilt-glare {
-    border-radius: 20px; /* Samakan dengan lengkungan card kamu */
-}
-
 /* ==========================================================================
    8. FOOTER
    ========================================================================== */
